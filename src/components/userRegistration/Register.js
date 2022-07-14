@@ -4,54 +4,67 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import Checkbox from '@mui/material/Checkbox';
 
-import RegisterImg from '../../assets/images/register-img.svg'
+import RegisterImg from '../../assets/images/register-img.svg';
+import styles from './register.module.css';
 
 const Register = () => {
   return (
-    <Grid container spacing={2} columns={16}>
-         <Grid item xs={8}>
+    <div className={styles.outerwrapper}>
+      
+    <div className={styles.registercontainer}>
+         <div >
             <img 
                 src={RegisterImg}
                 width={500}
                 height={500}
             />
-        </Grid>
-        <Grid item xs={8}>
-        
+        </div>
+        <div className={styles.registerformwrapper}>
+        <div>
+        <h3>Sign Up</h3>
+        <p>Already have an account? log in</p>
+      </div>
         <Box
       component="form"
       sx={{
-        '& > :not(style)': { m: 1, width: '25ch' },
+        width: 500,
+        maxWidth: '100%',
       }}
       noValidate
       autoComplete="off"
     >
+      <div className={styles.innerformwrapper}>
       <TextField 
       id="outlined-basic"
       label="First Name"
       variant="outlined"
       placeholder="John"
+      margin="normal"
       />
       <TextField 
       id="outlined-basic" 
       label="Last Name" 
       variant="outlined" 
       placeholder="Doe"
+      margin="normal"
       />
       <TextField 
       id="outlined-basic" 
       label="Email" 
       variant="outlined"
       placeholder="example@gmail.com"
+      margin="normal"
       />
+      </div>
     </Box>
 
-    <div>
+    <div className={styles.checkboswrapper}>
         <Checkbox  defaultChecked />
         <p>I agree to Terms and Conditions</p>
     </div>
-        </Grid>
-    </Grid>
+        </div>
+    </div>
+    </div>
   )
 }
 

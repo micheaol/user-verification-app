@@ -1,0 +1,26 @@
+.outerwrapper {
+
+    background-color: brown;
+}
+
+.registercontainer {
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.registerformwrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+
+.innerformwrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkboswrapper {
+    display: flex;
+}
