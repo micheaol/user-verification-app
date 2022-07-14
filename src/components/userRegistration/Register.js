@@ -1,14 +1,20 @@
-import React from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-// import SendIcon from '@mui/icons-material/Send';
-import Checkbox from '@mui/material/Checkbox';
+import React, { useState} from 'react';
 
 import RegisterImg from '../../assets/images/register-img.svg';
 import styles from './register.module.css';
 
 const Register = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(firstName)
+    console.log(lastName)
+    console.log(email)
+  }
   return (
     <div className={styles.outerwrapper}>
       
@@ -25,20 +31,44 @@ const Register = () => {
         <h1>Sign Up</h1>
         Already have an account? log in
       
-          <form>
+          <form onSubmit={handleSubmit}>
           <div className={`${styles.forminput} form-group`}>
             <label for="exampleInputEmail1">First Name</label> <br/>
-            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="First Name"/>
+            <input 
+            type="text"
+            className="form-control" 
+            id="exampleInputEmail1" 
+            aria-describedby="emailHelp" 
+            placeholder="First Name"
+            value={firstName}
+            onChange={ (e) => setFirstName(e.target.value) }  
+            />
             
           </div>
           <div className={`${styles.forminput} form-group`}>
             <label for="exampleInputEmail1">Last Name</label> <br/>
-            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Last Name"/>
+            <input 
+            type="text" 
+            className="form-control" 
+            id="exampleInputEmail1" 
+            aria-describedby="emailHelp" 
+            placeholder="Last Name"
+            value={lastName}
+            onChange={ (e) => setLastName(e.target.value) } 
+            />
             
           </div>
           <div className={`${styles.forminput} form-group`}>
             <label for="exampleInputEmail1">Email address</label> <br/>
-            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+            <input 
+            type="email" 
+            className="form-control" 
+            id="exampleInputEmail1" 
+            aria-describedby="emailHelp" 
+            placeholder="Enter email"
+            value={email}
+            onChange={ (e) => setEmail(e.target.value) } 
+            />
             
           </div>
           <div className={`${styles.forminputcheck} form-check`}>
