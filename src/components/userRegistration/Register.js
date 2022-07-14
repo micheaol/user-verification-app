@@ -13,60 +13,40 @@ const Register = () => {
     <div className={styles.outerwrapper}>
       
     <div className={styles.registercontainer}>
-         <div >
+         <div className={styles.imagewrapper}>
             <img 
                 src={RegisterImg}
-                width={400}
+                width={353}
                 height={500}
             />
         </div>
         <div className={styles.registerformwrapper}>
-        <div>
-        <h3>Sign Up</h3>
-        <p>Already have an account? log in</p>
-      </div>
-        <Box
-      component="form"
-      sx={{
-        width: 500,
-        maxWidth: '100%',
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <div className={styles.innerformwrapper}>
-      <TextField 
-      id="outlined-basic"
-      label="First Name"
-      variant="outlined"
-      placeholder="John"
-      margin="normal"
-      />
-      <TextField 
-      id="outlined-basic" 
-      label="Last Name" 
-      variant="outlined" 
-      placeholder="Doe"
-      margin="normal"
-      />
-      <TextField 
-      id="outlined-basic" 
-      label="Email" 
-      variant="outlined"
-      placeholder="example@gmail.com"
-      margin="normal"
-      />
-      </div>
-    </Box>
-
-    <div className={styles.checkboswrapper}>
-        <Checkbox  defaultChecked />
-        <p>I agree to Terms and Conditions</p>
-    </div>
-
-    <Button variant="contained">
-        Send
-      </Button>
+       
+        <h1>Sign Up</h1>
+        Already have an account? log in
+      
+          <form>
+          <div className={`${styles.forminput} form-group`}>
+            <label for="exampleInputEmail1">First Name</label> <br/>
+            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="First Name"/>
+            
+          </div>
+          <div className={`${styles.forminput} form-group`}>
+            <label for="exampleInputEmail1">Last Name</label> <br/>
+            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Last Name"/>
+            
+          </div>
+          <div className={`${styles.forminput} form-group`}>
+            <label for="exampleInputEmail1">Email address</label> <br/>
+            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+            
+          </div>
+          <div className={`${styles.forminputcheck} form-check`}>
+            <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
+            <label className="form-check-label" for="exampleCheck1">I agree to Terms and Conditions</label>
+          </div>
+            <button type="submit" className={`${styles.forminputbtn} btn btn-primary`}>Sign up</button>
+          </form>
     </div>
     </div>
     </div>
