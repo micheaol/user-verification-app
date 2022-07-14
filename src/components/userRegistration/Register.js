@@ -1,7 +1,8 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
+// import SendIcon from '@mui/icons-material/Send';
 import Checkbox from '@mui/material/Checkbox';
 
 import RegisterImg from '../../assets/images/register-img.svg';
@@ -15,7 +16,7 @@ const Register = () => {
          <div >
             <img 
                 src={RegisterImg}
-                width={500}
+                width={400}
                 height={500}
             />
         </div>
@@ -62,7 +63,11 @@ const Register = () => {
         <Checkbox  defaultChecked />
         <p>I agree to Terms and Conditions</p>
     </div>
-        </div>
+
+    <Button variant="contained">
+        Send
+      </Button>
+    </div>
     </div>
     </div>
   )

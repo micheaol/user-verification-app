@@ -8,6 +8,8 @@
     display: flex;
     justify-content: center;
     margin: 0 auto;
+    padding-top: 40px;
+    margin-top: 40px;
 }
 
 .registerformwrapper {
