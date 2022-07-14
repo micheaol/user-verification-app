@@ -29,8 +29,9 @@ const SuccessPage = () => {
         </div>
         <div className={styles.registerformwrapper}>
        
-        <h1>Sign Up</h1>
-        Already have an account? log in
+        <h1>Name: Michael Oladele</h1>
+        <h2>Email: micheaol80@gmail.com</h2>
+        <h3>Registration successful</h3>
       
         <img 
                 src={Dashboard}
