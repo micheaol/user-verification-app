@@ -16,10 +16,12 @@
     gap: 30px;
     color: #fff;
     border-radius: 20px;
+    padding-bottom: 30px;
 }
 
 .registerformwrapper {
     text-align: start;
+
 }
 
 .registerformwrapper h1 {
@@ -30,7 +32,6 @@ form {
     display: flex;
     flex-direction: column;
     text-align: start;
-    width: 130%;
     font-family: 'Roboto Condensed', sans-serif;
     
 }
@@ -50,7 +51,7 @@ form {
 
 .forminput input {
     padding: 10px;
-    width: 100%;
+    width: 80%;
 }
 
 .forminputbtn {
@@ -59,6 +60,7 @@ form {
     border: none;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 20px;
+    width: 70%;
 }
 
 .innerformwrapper {
@@ -68,4 +70,48 @@ form {
 
 .checkboswrapper {
     display: flex;
+}
+
+@media screen and (max-width: 960px) {
+
+    form {
+        display: flex;
+        flex-direction: column;
+        text-align: start;
+        /* width: 100vw; */
+        font-family: 'Roboto Condensed', sans-serif;
+        
+    }
+
+    .forminput input {
+        padding: 10px;
+        width: 60%;
+    }
+    .imagewrapper {
+        height: 30%;
+    }
+
+    .registerformwrapper {
+        text-align: center;
+    
+    }
+
+    .imagewrapper img {
+        margin-top: 10px;
+        width: 250px;
+        height: 150px;
+    }
+    .forminputbtn {
+        width: 60%;
+        margin-left: 15px;
+    }
+
+    .registercontainer {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+        gap: 1px;
+    }
+
 }

@@ -13,6 +13,7 @@
     gap: 30px;
     color: #fff;
     border-radius: 20px;
+    padding-bottom: 30px;
 }
 
 .registerformwrapper {
@@ -21,6 +22,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 form {
@@ -61,4 +63,47 @@ form {
 
 .checkboswrapper {
     display: flex;
+}
+
+@media screen and (max-width: 960px) {
+
+    form {
+        display: flex;
+        flex-direction: column;
+        text-align: start;
+        /* width: 100vw; */
+        font-family: 'Roboto Condensed', sans-serif;
+        
+    }
+
+    .forminput input {
+        padding: 10px;
+        width: 60%;
+    }
+    .imagewrapper {
+        height: 30%;
+    }
+    .registerformwrapper {
+        text-align: center;
+    
+    }
+
+    .imagewrapper img {
+        margin-top: 10px;
+        width: 250px;
+        height: 150px;
+    }
+    .forminputbtn {
+        width: 60%;
+        margin-left: 15px;
+    }
+
+    .registercontainer {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+        gap: 1px;
+    }
+
 }
