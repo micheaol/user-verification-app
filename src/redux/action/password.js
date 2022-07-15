@@ -16,19 +16,26 @@ export const setpasswordFail = (error) => ({
 });
 
 
-export const setPasswordInitiate = (password, confirmPassword) => {
+export const setPasswordInitiate = (password, confirmPassword, token) => {
+    let headers = {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      };
     return function (dispatch) {
         dispatch(setpasswordStart())
         axios
-            .post("http://localhost:5000/api/v1/setpassword", {
-                password,
-                confirmPassword,
-            }
-            )
+            .post("http://localhost:5000/api/v1/password",
+            { password, confirmPassword }, 
+            {  headers: {
+                "x-auth-token": token,
+                "Content-Type": "application/json",
+              }
+             })
             .then((res) => {
-                console.log("User signUp response", res.data)
-                dispatch(setpasswordSuccess(res.data))
-            })
-            .catch((error) => dispatch(setpasswordFail(error.response.data.error[0].message)))
+                    console.log(password, confirmPassword, token)
+                    console.log("password response", res)
+                    dispatch(setpasswordSuccess(res))
+                })
+                .catch((error) => console.log(error))
     }   
 }

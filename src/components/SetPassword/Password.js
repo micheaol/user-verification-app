@@ -1,25 +1,39 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { signUpInitiate } from '../../redux/action/user';
 import RegisterImg from '../../assets/images/register-img.svg';
 import styles from './password.module.css';
+import { setPasswordInitiate } from '../../redux/action/password';
+
 
 const Password = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const dispatch = useDispatch();
+
+  const token = useSelector(state => state.user.token?.token);
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!password) {
-      console.log("Password can not be empty")
+      setError("Password can not be empty")
     }else if(!confirmPassword ){
-      console.log("Confirm password can not be empty")
+      setError("Confirm password can not be empty")
 
     }else if(password !== confirmPassword){
-      console.log("Confirm password don't match")
+      setError("Confirm password don't match")
     }
+    setError("")
+     dispatch(setPasswordInitiate(password, confirmPassword, token))
   }
+
+  // useEffect(() => {
+  //   // console.log("From password ==>", token?.token)
+  // }, [])
+
   return (
     <div className={styles.outerwrapper}>
       
@@ -34,15 +48,15 @@ const Password = () => {
         <div className={styles.registerformwrapper}>
        
         <h1>Create Password</h1>
+        <h4 className={styles.errormessage}>{error}</h4>
         Already have an account? log in
-      
+
           <form onSubmit={handleSubmit}>
           <div className={`${styles.forminput} form-group`}>
             <label htmlFor="exampleInputEmail1">Password</label> <br/>
             <input 
             type="password"
             className="form-control" 
-            id="exampleInputEmail1" 
             aria-describedby="emailHelp" 
             placeholder="password"
             value={password}
@@ -55,7 +69,6 @@ const Password = () => {
             <input 
             type="password" 
             className="form-control" 
-            id="exampleInputEmail1" 
             aria-describedby="emailHelp" 
             placeholder="confirm password"
             value={confirmPassword}
