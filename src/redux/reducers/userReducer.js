@@ -4,6 +4,7 @@ const initialState = {
     user: null,
     loading: false,
     error: false,
+    token: null
 };
 
 const userReducer = (state = initialState, { type, payload}) => {
@@ -13,7 +14,7 @@ const userReducer = (state = initialState, { type, payload}) => {
                 loading: true,
                 ...state
             };
-        case types.GET_USER_PROFILE_SUCCESS:
+        case types.REGISTER_USER_SUCCESS:
             return {
                 loading: false,
                 token: payload

@@ -1,3 +1,5 @@
+import React, { useState} from 'react';
+
 import './App.css';
 import {
   BrowserRouter,
@@ -9,7 +11,9 @@ import SuccessPage from './components/successPage/SuccessPage';
 import Register from './components/userRegistration/Register';
 
 function App() {
+  
   return (
+
       <Routes>
         <Route path="/" element={<Register />} />
         <Route path="setpassword" element={<Password />} />

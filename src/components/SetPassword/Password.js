@@ -6,12 +6,19 @@ import styles from './password.module.css';
 const Password = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(password)
-    console.log(confirmPassword)
+    if (!password) {
+      console.log("Password can not be empty")
+    }else if(!confirmPassword ){
+      console.log("Confirm password can not be empty")
+
+    }else if(password !== confirmPassword){
+      console.log("Confirm password don't match")
+    }
   }
   return (
     <div className={styles.outerwrapper}>
@@ -31,7 +38,7 @@ const Password = () => {
       
           <form onSubmit={handleSubmit}>
           <div className={`${styles.forminput} form-group`}>
-            <label for="exampleInputEmail1">Password</label> <br/>
+            <label htmlFor="exampleInputEmail1">Password</label> <br/>
             <input 
             type="password"
             className="form-control" 
@@ -44,7 +51,7 @@ const Password = () => {
             
           </div>
           <div className={`${styles.forminput} form-group`}>
-            <label for="exampleInputEmail1">Confirm Password</label> <br/>
+            <label htmlFor="exampleInputEmail1">Confirm Password</label> <br/>
             <input 
             type="password" 
             className="form-control" 
