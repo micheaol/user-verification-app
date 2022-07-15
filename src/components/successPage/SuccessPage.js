@@ -1,21 +1,25 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect} from 'react';
 
+import { useSelector, useDispatch } from 'react-redux';
 import SuccessImg from '../../assets/images/success.svg';
 import Dashboard from '../../assets/images/dashboard.svg';
 import styles from './success.module.css';
 
+import { getUserInitiate } from '../../redux/action/user';
+
 const SuccessPage = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
+  const dispatch = useDispatch();
+  const { firstName, lastName, email} = useSelector(state => state.user)
+
+  const token = useSelector(state => state.user.token?.token);
+
+  console.log("From Success page",  firstName, lastName, email );
 
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(firstName)
-    console.log(lastName)
-    console.log(email)
-  }
+  useEffect(() => {
+    dispatch(getUserInitiate(token))
+  }, [])
+  
   return (
     <div className={styles.outerwrapper}>
       

@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { useNavigate } from 'react-router-dom';
 import { signUpInitiate } from '../../redux/action/user';
 import RegisterImg from '../../assets/images/register-img.svg';
 import styles from './password.module.css';
@@ -12,6 +12,7 @@ const Password = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const token = useSelector(state => state.user.token?.token);
 
@@ -28,6 +29,8 @@ const Password = () => {
     }
     setError("")
      dispatch(setPasswordInitiate(password, confirmPassword, token))
+     navigate('/success')
+
   }
 
   // useEffect(() => {

@@ -1,7 +1,7 @@
 import * as types from '../types/user';
 
 const initialState = {
-    user: null,
+    user: [],
     loading: false,
     error: false,
     token: null
@@ -24,7 +24,22 @@ const userReducer = (state = initialState, { type, payload}) => {
                 loading: false,
                 error: payload
             }
-    
+        case types.GET_USER_PROFILE_START:
+            return {
+                loading: true,
+                ...state
+            }
+        case types.GET_USER_PROFILE_SUCCESS:
+            return {
+                loading: false,
+                user: payload
+            }
+        case types.GET_USER_PROFILE_FAIL:
+            return {
+                loading: false,
+                error: payload
+            }
+
         default:
             return{
                 ...state
