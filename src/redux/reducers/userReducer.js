@@ -1,6 +1,10 @@
 import * as types from '../types/user';
 
-const initialState = [];
+const initialState = {
+    user: null,
+    loading: false,
+    error: false,
+};
 
 const userReducer = (state = initialState, { type, payload}) => {
     switch (type) {
@@ -26,3 +30,5 @@ const userReducer = (state = initialState, { type, payload}) => {
             };
     }
 }
+
+export default userReducer;
