@@ -6,13 +6,17 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import { useSelector } from 'react-redux';
 import Password from './components/SetPassword/Password';
 import SuccessPage from './components/successPage/SuccessPage';
 import Register from './components/userRegistration/Register';
 import PrivateRoutes from './auth/privateRoutes';
 
 function App() {
-  
+  // const [isAuth, setIsAuth] = useState(true);
+  // let auth = useSelector(state => state.userD.token?.token);
+
+
   return (
 
       <Routes>

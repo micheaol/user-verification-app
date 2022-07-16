@@ -9,15 +9,16 @@ const Register = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [error, setError] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const {token} = useSelector(state => state.userD);
+  const {error} = useSelector(state => state.userD);
 
   const registerUser = (token) => {
     if(token){
-      navigate('/setpassword')
+      // navigate('/setpassword')
     }
   }
 
@@ -25,19 +26,19 @@ const Register = () => {
   //   if(token){
   //     navigate('/setpassword')
   //   }
-
-  //   navigate('/')
+  //   // navigate('/')
   // }, [])
   
-  // console.log("Register UI ===>", token.token)
-  const handleSubmit = (e) => {
+  console.log("Register UI ===>", error)
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!firstName || !lastName || !email) {
-        setError("All fields must be filled!")
+      setErrorMessage("All fields must be filled!")
     }else if(firstName.length < 6 ||  lastName.length < 6){
-      setError("First name or Last name must not be less than 6 letters")
+      setErrorMessage("First name or Last name must not be less than 6 letters")
     }else{
-      dispatch(signUpInitiate(firstName, lastName, email))
+      await dispatch(signUpInitiate(firstName, lastName, email))
+      await navigate('/setpassword')
     }
   }
   return (
@@ -54,7 +55,7 @@ const Register = () => {
         <div className={styles.registerformwrapper}>
        
         <h1>Sign Up</h1>
-        <h4 className={styles.errormessage}>{error}</h4>
+        <h4 className={styles.errormessage}>{errorMessage || error}</h4>
         Already have an account? log in
       
           <form onSubmit={handleSubmit}>
@@ -102,7 +103,7 @@ const Register = () => {
             <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
             <label className="form-check-label" htmlFor="exampleCheck1">I agree to Terms and Conditions</label>
           </div>
-            <button type="submit" className={`${styles.forminputbtn} btn btn-primary`} onClick={registerUser(token?.token)}>Sign up</button>
+            <button type="submit" className={`${styles.forminputbtn} btn btn-primary`} >Sign up</button>
           </form>
     </div>
     </div>
