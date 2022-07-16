@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { signUpInitiate } from '../../redux/action/user';
+import { getUserInitiate, signUpInitiate } from '../../redux/action/user';
 import RegisterImg from '../../assets/images/register-img.svg';
 import styles from './password.module.css';
 import { setPasswordInitiate } from '../../redux/action/password';
@@ -14,7 +14,7 @@ const Password = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const token = useSelector(state => state.user.token?.token);
+  const token = useSelector(state => state.userD.token?.token);
 
 
   const handleSubmit = (e) => {
@@ -28,14 +28,13 @@ const Password = () => {
       setError("Confirm password don't match")
     }
     setError("")
+    
      dispatch(setPasswordInitiate(password, confirmPassword, token))
      navigate('/success')
 
   }
 
-  // useEffect(() => {
-  //   // console.log("From password ==>", token?.token)
-  // }, [])
+
 
   return (
     <div className={styles.outerwrapper}>

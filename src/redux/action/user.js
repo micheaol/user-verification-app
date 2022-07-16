@@ -1,5 +1,6 @@
 import * as types from '../types/user';
 import axios from 'axios';
+import _ from 'lodash';
 
 export const signUpUserStart = () => ({
     type: types.REGISTER_USER_START
@@ -60,12 +61,16 @@ export const getUserInitiate = (token) => {
               }
         })
         .then((res) => {
+            const receivedUsers = res.data.user;
+            const convertUser = [];
+            _.forEach(receivedUsers, (receivedUser) => convertUser.push(receivedUser))
+            
             console.log("Hello from Profile API")
-            console.log("From Profile API =>", res.data.user)
-            dispatch(fetchUserSuccess(res.data.user))
+            console.log("From Profile API =>", convertUser)
+            dispatch(fetchUserSuccess(convertUser))
         })
         .then((err) => {
-            dispatch(fetchUserFail(err))
+            // dispatch(fetchUserFail(err))
         } )
     }
 }

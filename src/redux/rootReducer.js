@@ -8,11 +8,11 @@ import userReducer from "./reducers/userReducer";
 const persistConfig = {
     key: "root",
     storage,
-    whitelist: ["user", "userPass"]
+    whitelist: ["userD", "userPass"]
 }
 
 const rootReducer = combineReducers({
-    user: userReducer,
+    userD: userReducer,
     userPass: passwordReducer
 });
 

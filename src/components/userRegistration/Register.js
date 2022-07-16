@@ -12,7 +12,7 @@ const Register = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const {token} = useSelector(state => state.user);
+  const {token} = useSelector(state => state.userD);
 
   const registerUser = (token) => {
     if(token){
