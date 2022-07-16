@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+
 .outerwrapper {
     margin: 0 auto;
 }
@@ -71,7 +73,10 @@ form {
     grid-template-rows: repeat(2, 1fr);
     text-align: center;
     align-items: center;
+    gap: 6px;
     width: 100%;
+    font-size: 20px;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 @media screen and (max-width: 960px) {

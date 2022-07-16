@@ -39,16 +39,18 @@ const SuccessPage = () => {
             />
         </div>
         <div className={styles.registerformwrapper}>
-          <ul>
-       {userData?.filter((details, index) => index !== 0).map((details) => <span> {details}</span>)
-       }
-       </ul>
-      
         <img 
                 src={Dashboard}
                 width={100}
                 height={50}
             />
+          <h2>Please find your detaild below: </h2>
+          <ul>
+       {userData?.filter((details, index) => index !== 0).map((details) => <span> {details}</span>)
+       }
+       </ul>
+      
+     
     </div>
     </div>
     </div>
