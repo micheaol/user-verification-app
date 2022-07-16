@@ -44,7 +44,7 @@ const SuccessPage = () => {
                 width={100}
                 height={50}
             />
-          <h2>Please find your detaild below: </h2>
+          <h2>Registration successful, details below: </h2>
           <ul>
        {userData?.filter((details, index) => index !== 0).map((details) => <span> {details}</span>)
        }

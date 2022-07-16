@@ -25,12 +25,13 @@ const Password = () => {
       setError("Confirm password can not be empty")
 
     }else if(password !== confirmPassword){
-      setError("Confirm password don't match")
+      setError("Confirm password and password don't match")
+    }else{
+      setError("")
+      dispatch(setPasswordInitiate(password, confirmPassword, token))
+      navigate('/success')
     }
-    setError("")
     
-     dispatch(setPasswordInitiate(password, confirmPassword, token))
-     navigate('/success')
 
   }
 
@@ -78,7 +79,7 @@ const Password = () => {
             />
             
           </div>
-            <button type="submit" className={`${styles.forminputbtn} btn btn-primary`}>Sign up</button>
+            <button type="submit" className={`${styles.forminputbtn} btn btn-primary`}>Set password</button>
           </form>
     </div>
     </div>

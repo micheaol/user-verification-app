@@ -9,6 +9,7 @@ const Register = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -17,9 +18,6 @@ const Register = () => {
   const registerUser = (token) => {
     if(token){
       navigate('/setpassword')
-    }else{
-
-      // navigate('/')
     }
   }
 
@@ -34,7 +32,13 @@ const Register = () => {
   // console.log("Register UI ===>", token.token)
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(signUpInitiate(firstName, lastName, email))
+    if (!firstName || !lastName || !email) {
+        setError("All fields must be filled!")
+    }else if(firstName.length < 6 ||  lastName.length < 6){
+      setError("First name or Last name must not be less than 6 letters")
+    }else{
+      dispatch(signUpInitiate(firstName, lastName, email))
+    }
   }
   return (
     <div className={styles.outerwrapper}>
@@ -50,10 +54,12 @@ const Register = () => {
         <div className={styles.registerformwrapper}>
        
         <h1>Sign Up</h1>
+        <h4 className={styles.errormessage}>{error}</h4>
         Already have an account? log in
       
           <form onSubmit={handleSubmit}>
           <div className={`${styles.forminput} form-group`}>
+
             <label htmlFor="exampleInputEmail1">First Name</label> <br/>
             <input 
             type="text"
