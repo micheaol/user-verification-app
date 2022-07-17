@@ -86,7 +86,6 @@ form {
         display: flex;
         flex-direction: column;
         text-align: start;
-        /* width: 100vw; */
         font-family: 'Roboto Condensed', sans-serif;
         
     }

@@ -17,8 +17,6 @@ const SuccessPage = () => {
 
   const token = useSelector(state => state.userD.token?.token);
 
-  console.log("From Success page",  userData );
-
 
   useEffect(() => {
     if(userP){
@@ -46,7 +44,7 @@ const SuccessPage = () => {
             />
           <h2>Registration successful, details below: </h2>
           <ul>
-       {userData?.filter((details, index) => index !== 0).map((details) => <span> {details}</span>)
+       {userData?.filter((details, index) => index !== 0).map((details, index) => <span key={index}> {details}</span>)
        }
        </ul>
       

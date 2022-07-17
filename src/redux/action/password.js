@@ -17,14 +17,10 @@ export const setpasswordFail = (error) => ({
 
 
 export const setPasswordInitiate = (password, confirmPassword, token) => {
-    let headers = {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      };
     return function (dispatch) {
         dispatch(setpasswordStart())
         axios
-            .post("http://localhost:5000/api/v1/password",
+            .post("https://user-verification-app.herokuapp.com/api/v1/password",
             { password, confirmPassword }, 
             {  headers: {
                 "x-auth-token": token,
@@ -32,8 +28,6 @@ export const setPasswordInitiate = (password, confirmPassword, token) => {
               }
              })
             .then((res) => {
-                    console.log(password, confirmPassword, token)
-                    console.log("password response", res)
                     dispatch(setpasswordSuccess(res))
                 })
                 .catch((error) => console.log(error))

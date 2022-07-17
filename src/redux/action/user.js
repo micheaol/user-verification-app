@@ -35,7 +35,7 @@ export const signUpInitiate = (firstName, lastName, email) => {
     return function (dispatch) {
         dispatch(signUpUserStart())
         axios
-            .post("http://localhost:5000/api/v1/users",
+            .post("https://user-verification-app.herokuapp.com/api/v1/users",
               {
                 firstName,
                 lastName,
@@ -43,7 +43,6 @@ export const signUpInitiate = (firstName, lastName, email) => {
             }
             )
             .then((res) => {
-                console.log("User signUp response", res.data)
                 dispatch(signUpUserSuccess(res.data))
             })
             .catch((error) => dispatch(signUpUserFail(error.response.data.error[0].message)))
@@ -54,7 +53,7 @@ export const getUserInitiate = (token) => {
     return function (dispatch) {
         dispatch(fetchUserStart())
         axios
-        .get('http://localhost:5000/api/v1/password/me', {
+        .get('https://user-verification-app.herokuapp.com/api/v1/password/me', {
             headers: {
                 "x-auth-token": token,
                 "Content-Type": "application/json",
@@ -65,12 +64,10 @@ export const getUserInitiate = (token) => {
             const convertUser = [];
             _.forEach(receivedUsers, (receivedUser) => convertUser.push(receivedUser))
             
-            console.log("Hello from Profile API")
-            console.log("From Profile API =>", convertUser)
             dispatch(fetchUserSuccess(convertUser))
         })
         .then((err) => {
-            // dispatch(fetchUserFail(err))
+
         } )
     }
 }

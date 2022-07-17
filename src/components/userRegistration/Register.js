@@ -18,16 +18,10 @@ const Register = () => {
 
   const registerUser = (token) => {
     if(token){
-      // navigate('/setpassword')
     }
   }
 
-  // useEffect(() => {
-  //   if(token){
-  //     navigate('/setpassword')
-  //   }
-  //   // navigate('/')
-  // }, [])
+
   
   console.log("Register UI ===>", error)
   const handleSubmit = async (e) => {
