@@ -35,7 +35,7 @@ export const signUpInitiate = (firstName, lastName, email) => {
     return function (dispatch) {
         dispatch(signUpUserStart())
         axios
-            .post("https://user-verification-app.herokuapp.com/api/v1/users",
+            .post(`${process.env.REACT_APP_BASE_URL}users`,
               {
                 firstName,
                 lastName,
@@ -53,7 +53,7 @@ export const getUserInitiate = (token) => {
     return function (dispatch) {
         dispatch(fetchUserStart())
         axios
-        .get('https://user-verification-app.herokuapp.com/api/v1/password/me', {
+        .get(`${process.env.REACT_APP_BASE_URL}password/me`, {
             headers: {
                 "x-auth-token": token,
                 "Content-Type": "application/json",

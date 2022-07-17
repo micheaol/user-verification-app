@@ -20,7 +20,7 @@ export const setPasswordInitiate = (password, confirmPassword, token) => {
     return function (dispatch) {
         dispatch(setpasswordStart())
         axios
-            .post("https://user-verification-app.herokuapp.com/api/v1/password",
+            .post(`${process.env.REACT_APP_BASE_URL}password`,
             { password, confirmPassword }, 
             {  headers: {
                 "x-auth-token": token,
